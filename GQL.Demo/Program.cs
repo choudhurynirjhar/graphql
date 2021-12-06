@@ -17,6 +17,11 @@ builder.Services.AddSingleton<ProductType>();
 builder.Services.AddSingleton<ProductQuery>();
 builder.Services.AddSingleton<ISchema, ProductSchema>();
 
+builder.Services.AddSingleton<IDataAccess, DataAccess>();
+builder.Services.AddSingleton<IProductCreator, ProductCreator>();
+builder.Services.AddSingleton<ProductMutation>();
+builder.Services.AddSingleton<ProductInput>();
+
 builder.Services.AddGraphQL(opt => opt.EnableMetrics = false).AddSystemTextJson();
 
 var app = builder.Build();

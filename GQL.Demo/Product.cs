@@ -28,21 +28,6 @@ public class ProductSchema : Schema
     public ProductSchema(IServiceProvider serviceProvider) : base(serviceProvider)
     {
         Query = serviceProvider.GetRequiredService<ProductQuery>();
+        Mutation = serviceProvider.GetRequiredService<ProductMutation>();
     }
-}
-
-public interface IProductProvider
-{
-    Product[] GetProducts();
-}
-
-public class ProductProvider : IProductProvider
-{
-    public Product[] GetProducts() => new[]
-    {
-        new Product(1, "Laptop", 20),
-        new Product(2, "Mouse", 30),
-        new Product(3, "Keyboard", 10),
-        new Product(4, "Monitor", 40)
-    };
 }
